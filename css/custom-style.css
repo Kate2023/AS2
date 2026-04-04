@@ -1,0 +1,115 @@
+/* custom-style.css
+   Custom styles to complement Bootstrap and align with the wireframe feel.
+*/
+
+:root{
+  --brand-dark: #2f2f2f;
+  --soft-gray: #f3f3f3;
+  --tile-border: #d9d9d9;
+}
+
+html, body{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.brand-mark{
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--tile-border);
+  border-radius: 8px;
+  color: var(--brand-dark);
+}
+
+.section-title{
+  letter-spacing: 0.12em;
+  font-weight: 300;
+  text-transform: none;
+}
+
+.section-rule{
+  width: 140px;
+  opacity: .35;
+}
+
+.hero-divider{
+  background: #fff;
+}
+
+.placeholder-tile{
+  background: #fff;
+  border: 1px solid var(--tile-border);
+  border-radius: 6px;
+}
+
+.product-card,
+.list-product{
+  border: 1px solid var(--tile-border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.list-thumb{
+  width: 84px;
+  max-width: 84px;
+  flex: 0 0 auto;
+}
+
+.footer-link{
+  color: #6c757d;
+  text-decoration: none;
+}
+.footer-link:hover{
+  color: #111;
+  text-decoration: underline;
+}
+
+.rating i{
+  margin-right: 1px;
+}
+
+.avatar-circle{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--tile-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+/* Step indicator emphasis (cart/shipping/payment) */
+.step-active{
+  color: #111;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.summary-line{
+  padding: .35rem 0;
+}
+
+/* Fancy floating anchor button */
+.floating-anchor{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  border-radius: 999px;
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: all .2s ease;
+  z-index: 999;
+}
+.floating-anchor.is-visible{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

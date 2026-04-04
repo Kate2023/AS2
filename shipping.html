@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aotearoa Adventure Gear | Shipping</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom-style.css" />
+</head>
+
+<body>
+  <header class="border-bottom bg-white sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container py-2">
+        <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+          <span class="brand-mark d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-mountain"></i>
+          </span>
+          <span>Aotearoa Adventure Gear</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#help">Help</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-dark btn-sm d-inline-flex align-items-center gap-2" href="cart.html">
+                <i class="bi bi-cart3"></i>
+                Your Cart
+                <span class="badge text-bg-light" id="cartCount">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Steps (same style as cart) -->
+    <section class="py-4 hero-divider">
+      <div class="container">
+        <div class="row text-center small text-muted">
+          <div class="col-4">1. Shopping Cart</div>
+          <div class="col-4 step-active">2. Shipping Details</div>
+          <div class="col-4">3. Payment Options</div>
+        </div>
+        <hr class="mt-3">
+      </div>
+    </section>
+
+    <section class="py-4">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Left: Shipping details form -->
+          <section class="col-12 col-lg-7">
+            <h1 class="h3 mb-3">Shipping Details</h1>
+            <hr>
+
+            <!-- Free shipping offer (required) -->
+            <div class="alert alert-info py-2 mb-3" id="freeShippingBanner" role="status">
+              Free shipping applies automatically for totals over <strong>$600</strong>.
+              <span class="ms-1">Remaining: <strong>$<span id="remainingForFreeShipping">0</span></strong></span>
+            </div>
+
+            <form id="shippingForm" novalidate>
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <label for="firstName" class="visually-hidden">First Name</label>
+                  <input type="text" class="form-control" id="firstName" placeholder="First Name" required minlength="2" maxlength="40">
+                  <div class="invalid-feedback">First name is required.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="lastName" class="visually-hidden">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" placeholder="Last Name" required minlength="2" maxlength="40">
+                  <div class="invalid-feedback">Last name is required.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address1" class="visually-hidden">Address</label>
+                  <input type="text" class="form-control" id="address1" placeholder="Address" required minlength="5" maxlength="100">
+                  <div class="invalid-feedback">Address is required.</div>
+                </div>
+
+                <div class="col-12">
+                  <label for="address2" class="visually-hidden">Address 2</label>
+                  <input type="text" class="form-control" id="address2" placeholder="Address 2 (optional)" maxlength="100">
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="country" class="visually-hidden">Country</label>
+                  <select class="form-select" id="country" required>
+                    <option value="" selected>Country</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a country.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="city" class="visually-hidden">City</label>
+                  <input type="text" class="form-control" id="city" placeholder="City" required minlength="2" maxlength="60">
+                  <div class="invalid-feedback">City is required.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="postcode" class="visually-hidden">Zip/Postal Code</label>
+                  <input type="text" class="form-control" id="postcode" placeholder="Zip/Postal Code" required>
+                  <div class="invalid-feedback">Enter a valid postcode.</div>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label for="phone" class="visually-hidden">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" placeholder="Phone Number" required pattern="^[0-9 +()-]{7,20}$">
+                  <div class="invalid-feedback">Enter a valid phone number.</div>
+                </div>
+
+                <!-- Shipping method tiles (wireframe-style) -->
+                <div class="col-12">
+                  <div class="row g-3 mt-1">
+                    <div class="col-12 col-md-6">
+                      <label class="ship-option w-100">
+                        <input class="form-check-input me-2" type="radio" name="shipMethod" value="free" checked>
+                        <span class="ship-option-title">Free Shipping</span>
+                        <span class="ship-option-sub">Between 2 - 5 working days</span>
+                      </label>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label class="ship-option w-100">
+                        <input class="form-check-input me-2" type="radio" name="shipMethod" value="nextday">
+                        <span class="ship-option-title">Next Day Delivery - $20</span>
+                        <span class="ship-option-sub">24 hours from checkout</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="mt-3">
+
+                <div class="col-12 d-flex gap-2">
+                  <button class="btn btn-dark px-4" type="submit">Next</button>
+                  <button class="btn btn-outline-secondary px-4" type="button" id="cancelShipping">Cancel</button>
+                </div>
+              </div>
+            </form>
+          </section>
+
+          <!-- Right: Summary (with product mini list + voucher dropdown row) -->
+          <aside class="col-12 col-lg-5">
+            <h2 class="h4 mb-3">Summary</h2>
+            <hr>
+
+            <div class="summary-products mb-3">
+              <div class="d-flex align-items-center gap-3 py-2">
+                <div class="ratio ratio-1x1 summary-thumb placeholder-tile"></div>
+                <div>
+                  <div class="text-uppercase small text-muted">Product Name</div>
+                  <div class="fw-semibold">$300</div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3 py-2">
+                <div class="ratio ratio-1x1 summary-thumb placeholder-tile"></div>
+                <div>
+                  <div class="text-uppercase small text-muted">Product Name</div>
+                  <div class="fw-semibold">$300</div>
+                </div>
+              </div>
+            </div>
+
+            <hr>
+
+            <!-- HAVE A VOUCHER? (wireframe row with caret) -->
+            <button class="voucher-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#voucherArea"
+                    aria-expanded="false" aria-controls="voucherArea">
+              <span>HAVE A VOUCHER?</span>
+              <i class="bi bi-caret-down-fill"></i>
+            </button>
+
+            <div class="collapse mt-2" id="voucherArea">
+              <form id="voucherFormShipping" class="mb-3" novalidate>
+                <input class="form-control" id="voucherCodeShipping" placeholder="Enter voucher code (optional)" minlength="3" maxlength="12">
+                <div class="invalid-feedback">Voucher must be 3–12 letters/numbers.</div>
+                <div class="small text-success mt-2 d-none" id="voucherAppliedShipping">Voucher saved.</div>
+              </form>
+            </div>
+
+            <div class="summary-line d-flex justify-content-between">
+              <span class="text-muted">SUBTOTAL</span>
+              <span>$<span id="shipSubtotal">0</span></span>
+            </div>
+            <div class="summary-line d-flex justify-content-between">
+              <span class="text-muted">SHIPPING</span>
+              <span id="shipShippingLabel">—</span>
+            </div>
+            <div class="summary-line d-flex justify-content-between">
+              <span class="text-muted">TAXES</span>
+              <span>$<span id="shipTaxes">0</span></span>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between align-items-end">
+              <div class="text-uppercase text-muted">TOTAL</div>
+              <div class="display-6 fw-light">$<span id="shipTotal">0</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-top bg-white py-4">
+    <div class="container text-center small text-muted">
+      <a class="footer-link me-3" href="index.html">Home</a> |
+      <a class="footer-link mx-3" href="index.html#about">About</a> |
+      <a class="footer-link mx-3" href="shop.html">Shop</a> |
+      <a class="footer-link ms-3" href="index.html#help">Help</a>
+      <div class="mt-2"><i class="bi bi-c-circle"></i> Your Company Name</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

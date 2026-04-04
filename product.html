@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aotearoa Adventure Gear | Product</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/custom-style.css" />
+</head>
+
+<body>
+  <header class="border-bottom bg-white sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container py-2">
+        <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+          <span class="brand-mark d-inline-flex align-items-center justify-content-center">
+            <i class="bi bi-mountain"></i>
+          </span>
+          <span>Aotearoa Adventure Gear</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#help">Help</a></li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-dark btn-sm d-inline-flex align-items-center gap-2" href="cart.html">
+                <i class="bi bi-cart3"></i>
+                Your Cart
+                <span class="badge text-bg-light" id="cartCount">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Top product area: large image left, details right -->
+    <section class="py-5 hero-divider">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-12 col-lg-6">
+            <div class="ratio ratio-1x1 placeholder-tile h-100"></div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <article class="h-100">
+              <h1 class="display-6 mb-2">Product title</h1>
+
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="rating text-warning" aria-label="4 out of 5 stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                </div>
+                <div class="small text-muted">5 reviews</div>
+              </div>
+
+              <hr>
+              <div class="price display-6 fw-light mb-3">$ <span id="productPrice">1232</span></div>
+
+              <form id="productForm" class="row g-3" novalidate>
+                <div class="col-12 col-md-7">
+                  <label for="modelSelect" class="form-label visually-hidden">Select Model</label>
+                  <select class="form-select" id="modelSelect" required>
+                    <option value="" selected>Select Model</option>
+                    <option value="standard">Standard</option>
+                    <option value="pro">Pro</option>
+                    <option value="ultralight">Ultralight</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a model.</div>
+                </div>
+
+                <div class="col-12 col-md-5">
+                  <label for="qty" class="form-label visually-hidden">Quantity</label>
+                  <input type="number" class="form-control" id="qty" min="1" max="99" value="1" required>
+                  <div class="invalid-feedback">Quantity must be 1–99.</div>
+                </div>
+
+                <div class="col-12">
+                  <p class="text-muted mb-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+                  </p>
+                </div>
+
+                <div class="col-12">
+                  <button type="submit" class="btn btn-dark px-4">Add To Cart</button>
+                </div>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Similar products row -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="text-center section-title mb-3">Similar Products</h2>
+        <div class="row g-3 justify-content-center">
+          <div class="col-12 col-md-4">
+            <article class="product-card p-3">
+              <div class="d-flex gap-3">
+                <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                <div>
+                  <div class="text-uppercase small text-muted">Product Name</div>
+                  <div class="rating text-warning small">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                  </div>
+                  <div class="fw-semibold">$300</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="product-card p-3">
+              <div class="d-flex gap-3">
+                <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                <div>
+                  <div class="text-uppercase small text-muted">Product Name</div>
+                  <div class="rating text-warning small">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                  </div>
+                  <div class="fw-semibold">$300</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <article class="product-card p-3">
+              <div class="d-flex gap-3">
+                <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                <div>
+                  <div class="text-uppercase small text-muted">Product Name</div>
+                  <div class="rating text-warning small">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                  </div>
+                  <div class="fw-semibold">$300</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews section -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="section-title mb-4">Reviews</h2>
+
+        <article class="review-item py-3 border-bottom">
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar-circle"><i class="bi bi-person"></i></div>
+                <div>
+                  <div class="fw-semibold">JOHN DOE</div>
+                  <div class="small text-muted">august 14, 2018</div>
+                  <div class="rating text-warning small">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-9">
+              <p class="text-muted mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="review-item py-3">
+          <div class="row g-3">
+            <div class="col-12 col-md-3">
+              <div class="d-flex align-items-center gap-3">
+                <div class="avatar-circle"><i class="bi bi-person"></i></div>
+                <div>
+                  <div class="fw-semibold">JOHN DOE</div>
+                  <div class="small text-muted">august 14, 2018</div>
+                  <div class="rating text-warning small">
+                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-9">
+              <p class="text-muted mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-top bg-white py-4">
+    <div class="container text-center small text-muted">
+      <a class="footer-link me-3" href="index.html">Home</a> |
+      <a class="footer-link mx-3" href="index.html#about">About</a> |
+      <a class="footer-link mx-3" href="shop.html">Shop</a> |
+      <a class="footer-link ms-3" href="index.html#help">Help</a>
+      <div class="mt-2"><i class="bi bi-c-circle"></i> Your Company Name</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -3,13 +3,23 @@
 */
 
 :root{
-  --brand-dark: #2f2f2f;
-  --soft-gray: #f3f3f3;
-  --tile-border: #d9d9d9;
+  --brand-dark: #3A5456ff;
+  --soft-gray: #687D80ff;
+  --tile-border:#89A3B2ff;
 }
 
 html, body{
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.btn-dark{
+    background-color: #3A5456ff; /* New background */
+    border-color: #3A5456ff;     /* Match border */
+}
+
+.btn:hover {
+    background-color: #3A5456ff; /* Hover effect */
+    border-color: #3A5456ff;
 }
 
 .brand-mark{
@@ -31,6 +41,7 @@ html, body{
   opacity: .35;
 }
 
+ 
 .hero-divider{
   background: #fff;
 }
@@ -43,7 +54,7 @@ html, body{
 
 .product-card,
 .list-product{
-  border: 1px solid var(--tile-border);
+  border: 0px solid var(--tile-border);
   border-radius: 10px;
   background: #fff;
 }
@@ -83,7 +94,7 @@ html, body{
   color: #111;
   font-weight: 600;
   text-decoration: underline;
-  text-underline-offset: 8px;
+  text-underline-offset:21px;
 }
 
 .summary-line{

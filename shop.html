@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aotearoa Adventure Gear | Shop</title>
 
+ <!-- Web font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS (required) -->
   <link rel="stylesheet" href="css/custom-style.css" />
 </head>
 
@@ -20,7 +26,7 @@
       <div class="container py-2">
         <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
           <span class="brand-mark d-inline-flex align-items-center justify-content-center">
-            <i class="bi bi-mountain"></i>
+          <img src="images/logo.png" alt="Aotearoa Adventure Gear" style="width:100px;height:60px;"/>
           </span>
           <span>Aotearoa Adventure Gear</span>
         </a>
@@ -51,7 +57,7 @@
 
   <main>
     <!-- Tagline + search bar with submit button (wireframe) -->
-    <section class="py-5 hero-divider">
+    <section class="py-5 hero-divider bg-light">
       <div class="container text-center">
         <h1 class="display-6 fw-light mb-3">Tagline describing your e-shop</h1>
         <hr class="mx-auto section-rule">
@@ -70,41 +76,61 @@
 
     <!-- Featured categories row with 3 tiles + Shop Now block -->
     <section class="py-5">
-      <div class="container">
+      <div class="container ">
         <h2 class="text-center section-title mb-2">Featured Categories</h2>
         <p class="text-center text-muted mb-4">Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</p>
 
-        <div class="row g-4 align-items-stretch justify-content-center">
-          <div class="col-10 col-sm-6 col-md-3">
-            <div class="ratio ratio-3x4 placeholder-tile"></div>
+        <div class="row justify-content-center g-4 mt-4">
+          <div class="col-10 col-sm-4 col-md-3">
+            <div class="ratio  placeholder-tile" style="--bs-aspect-ratio: 120%;">
+              <div class="d-flex align-items-center justify-content-center">
+                <i class="bi bi-image fs-2 text-secondary"></i>
+              </div>
+            </div>
             <div class="text-center text-uppercase small text-muted mt-2">Category</div>
           </div>
-
-          <div class="col-10 col-sm-6 col-md-3">
-            <div class="ratio ratio-3x4 placeholder-tile"></div>
+          <div class="col-10 col-sm-4 col-md-3">
+            <div class="ratio placeholder-tile" style="--bs-aspect-ratio: 120%;">
+              <div class="d-flex align-items-center justify-content-center">
+                <i class="bi bi-image fs-2 text-secondary"></i>
+              </div>
+            </div>
             <div class="text-center text-uppercase small text-muted mt-2">Category</div>
           </div>
-
-          <div class="col-10 col-sm-6 col-md-3">
-            <div class="ratio ratio-3x4 placeholder-tile"></div>
+          <div class="col-10 col-sm-4 col-md-3">
+            <div class="ratio  placeholder-tile" style="--bs-aspect-ratio: 120%;">
+              <div class="d-flex align-items-center justify-content-center">
+                <i class="bi bi-image fs-2 text-secondary"></i>
+              </div>
+            </div>
             <div class="text-center text-uppercase small text-muted mt-2">Category</div>
           </div>
-
+        
           <div class="col-10 col-sm-6 col-md-3 d-grid">
-            <a href="#browseAll" class="btn btn-dark h-100 d-flex align-items-center justify-content-center">Shop Now</a>
+           <div class="ratio" style="--bs-aspect-ratio: 115%;"> <a href="#browseAll" class="btn btn-dark h-100 d-flex align-items-center justify-content-center">Shop Now</a></div>
+           <div class="text-center text-uppercase small text-muted mt-2"> </div>
           </div>
+          
         </div>
       </div>
     </section>
 
     <!-- Newsletter strip (wireframe) -->
-    <section class="py-4 bg-light">
+    <section class="py-4">
       <div class="container">
-        <div class="row g-3 align-items-center">
-          <div class="col-12 col-lg-6 text-center text-lg-start">
-            <h3 class="mb-0">Newsletter</h3>
+        <hr class="mx-auto section-rule mb-4 w-100">
+        <div class="row g-3 align-items-center justify-content-between">
+          <div class="col-10 col-sm-4 col-md-3">
+            <div class="ratio placeholder-tile" style="--bs-aspect-ratio: 75%;">
+              <div class="d-flex align-items-center justify-content-center">
+                <i class="bi bi-image fs-2 text-secondary"></i>
+              </div>
+            </div>
           </div>
           <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 text-center text-lg-start">
+            <h3 class="mb-0">Newsletter</h3>
+            </div>
             <form class="row g-2 justify-content-lg-end" id="newsletterFormShop" novalidate>
               <div class="col-12 col-md-8">
                 <input type="email" class="form-control" id="newsletterEmailShop" placeholder="Email Address" required>
@@ -117,57 +143,51 @@
             <div class="small text-success mt-2 d-none" id="newsletterSuccessShop">Thanks for subscribing!</div>
           </div>
         </div>
+        <hr class="mx-auto section-rule mb-4 w-100">
       </div>
     </section>
 
     <!-- Left text panel + right product list (wireframe) -->
     <section class="py-5" id="browseAll">
       <div class="container">
-        <div class="row g-4">
+        <div class="d-flex flex-row g-4">
           <aside class="col-12 col-lg-4">
             <h2 class="display-6">Header<br>Regarding<br>Your Product</h2>
             <p class="text-muted">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
             </p>
             <a class="btn btn-dark" href="#products">Browse All</a>
-          </aside>
-
-          <section class="col-12 col-lg-8" id="products" aria-label="Product listing">
+            </aside>
+          <div class="vr d-none d-sm-block"></div>
+            <section class="col-12 col-lg-8" id="products" aria-label="Product listing">
             <div class="row g-3">
-              <!-- 6 product rows similar to wireframe (2 columns on md+) -->
+               <!-- 6 product rows similar to wireframe (2 columns on md+) -->
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
-                  <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                 <div class="d-flex gap-3">
+                  <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div> 
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
+                      
                     </div>
-                  </div>
+                  </div> 
                 </article>
               </div>
 
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
                   <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                    <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div>
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -176,17 +196,13 @@
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
                   <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                    <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div>
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -195,17 +211,13 @@
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
                   <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                    <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div>
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -214,17 +226,13 @@
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
                   <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                    <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div>
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -233,17 +241,13 @@
               <div class="col-12 col-md-6">
                 <article class="list-product p-3">
                   <div class="d-flex gap-3">
-                    <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
+                    <div class="ratio ratio-16X9 list-thumb placeholder-tile"><a href="product.html"></a></div>
                     <div class="flex-grow-1">
                       <div class="text-uppercase small text-muted">Product Name</div>
                       <div class="rating text-warning small">
                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
                       <div class="fw-semibold">$300</div>
-                      <div class="mt-2 d-flex gap-2">
-                        <a class="btn btn-outline-dark btn-sm" href="product.html">View</a>
-                        <button class="btn btn-dark btn-sm js-add-to-cart" type="button" data-price="300">Add</button>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -262,7 +266,7 @@
       <a class="footer-link mx-3" href="index.html#about">About</a> |
       <a class="footer-link mx-3" href="shop.html">Shop</a> |
       <a class="footer-link ms-3" href="index.html#help">Help</a>
-      <div class="mt-2"><i class="bi bi-c-circle"></i> Your Company Name</div>
+      <div class="mt-2"><i class="bi bi-c-circle"></i> Aotearoa Adventure Gear</div>
     </div>
   </footer>
 

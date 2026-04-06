@@ -100,6 +100,48 @@
     bind("#newsletterFormShop", "#newsletterEmailShop", "#newsletterSuccessShop");
   }
 
+
+  // Coupon: allow only letters/numbers 3-12 (shared across pages)
+function initCouponForm() {
+  const $form = $("#couponForm");
+  if (!$form.length) return;
+
+  $form.on("submit", function (e) {
+    e.preventDefault();
+
+    const $code = $("#couponCode");
+    const code = ($code.val() || "").toString().trim().toUpperCase();
+    const ok = /^[A-Z0-9]{3,12}$/.test(code);
+
+    if (!code) {
+      $code.removeClass("is-invalid is-valid");
+      $("#couponApplied").addClass("d-none");
+
+      // optional: store in state for prototype consistency
+      const state = loadCartState();
+      state.coupon = null;
+      saveCartState(state);
+
+      return;
+    }
+
+    if (!ok) {
+      $code.addClass("is-invalid").removeClass("is-valid");
+      $("#couponApplied").addClass("d-none");
+      return;
+    }
+
+    $code.removeClass("is-invalid").addClass("is-valid");
+    $("#couponApplied").removeClass("d-none");
+
+    const state = loadCartState();
+    state.coupon = code;
+    saveCartState(state);
+
+    setTimeout(() => $code.removeClass("is-valid"), 900);
+  });
+}
+
   // Add-to-cart buttons on shop + product page
   function initAddToCartButtons() {
     $(".js-add-to-cart").on("click", function () {
@@ -191,37 +233,6 @@
         updateCartCountBadge();
         renderSummary();
       }
-    });
-
-    // Coupon: allow only letters/numbers 3-12
-    $("#couponForm").on("submit", function (e) {
-      e.preventDefault();
-
-      const code = ($("#couponCode").val() || "").toString().trim().toUpperCase();
-      const ok = /^[A-Z0-9]{3,12}$/.test(code);
-
-      if (!code) {
-        $("#couponCode").removeClass("is-invalid");
-        $("#couponApplied").addClass("d-none");
-        state.coupon = null;
-        saveCartState(state);
-        return;
-      }
-
-      if (!ok) {
-        $("#couponCode").addClass("is-invalid");
-        $("#couponApplied").addClass("d-none");
-        return;
-      }
-
-      $("#couponCode").removeClass("is-invalid").addClass("is-valid");
-      $("#couponApplied").removeClass("d-none");
-
-      // Prototype only: store coupon but not changing totals
-      state.coupon = code;
-      saveCartState(state);
-
-      setTimeout(() => $("#couponCode").removeClass("is-valid"), 900);
     });
 
     $("#cancelCart").on("click", function () {
@@ -405,13 +416,14 @@
 
   // Initialize
   $(function () {
-    updateCartCountBadge();
-    initFloatingAnchor();
-    initNewsletterForms();
-    initSearchForms();
-    initAddToCartButtons();
-    initCartPage();
-    initShippingPage();
-    initPaymentPage();
-  });
+  updateCartCountBadge();
+  initFloatingAnchor();
+  initNewsletterForms();
+  initSearchForms();
+  initAddToCartButtons();
+  initCouponForm();    
+  initCartPage();
+  initShippingPage();
+  initPaymentPage();
+});
 })();

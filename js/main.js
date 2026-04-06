@@ -309,10 +309,18 @@
       return (s || "").toString().replace(/\D/g, "");
     }
 
-    $("#paymentForm").on("submit", function (e) {
+      $("#paymentForm").on("submit", function (e) {
       e.preventDefault();
 
       let ok = true;
+
+      const payMethod = $("input[name='payMethod']:checked").val();
+
+      // If PayPal selected, skip card field validation (UI stays same)
+      if (payMethod === "paypal") {
+        $("#paymentSuccess").removeClass("d-none");
+        return;
+      }
 
       // Card number: 13-19 digits
       const cn = digitsOnly($("#cardNumber").val());

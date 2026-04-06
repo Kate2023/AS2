@@ -193,20 +193,13 @@
 
             <hr>
 
-            <!-- HAVE A VOUCHER? (wireframe row with caret) -->
-            <button class="voucher-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#voucherArea"
-                    aria-expanded="false" aria-controls="voucherArea">
-              <span>HAVE A VOUCHER?</span>
-              <i class="bi bi-caret-down-fill"></i>
-            </button>
-
-            <div class="collapse mt-2" id="voucherArea">
-              <form class="js-voucher-form" novalidate>
-                 <input class="form-control js-voucher-code" minlength="3" maxlength="12">
-                 <div class="invalid-feedback">Voucher must be 3–12 letters/numbers.</div>
-                 <div class="small text-success mt-2 d-none js-voucher-applied">Voucher saved.</div>
-              </form>
-            </div>
+            <!-- Coupon -->
+           <form id="couponForm" class="mb-3" novalidate>
+              <label for="couponCode" class="form-label small fw-semibold">ENTER COUPON CODE</label>
+              <input class="form-control" id="couponCode" placeholder="e.g. SAVE10" minlength="3" maxlength="12">
+              <div class="invalid-feedback">Coupon code must be 3–12 letters/numbers.</div>
+              <div class="small text-success mt-2 d-none" id="couponApplied">Coupon applied.</div>
+            </form>
 
             <div class="summary-line d-flex justify-content-between">
               <span class="text-muted">SUBTOTAL</span>

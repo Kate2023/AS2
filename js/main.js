@@ -102,45 +102,45 @@
 
 
   // Coupon: allow only letters/numbers 3-12 (shared across pages)
-function initCouponForm() {
-  const $form = $("#couponForm");
-  if (!$form.length) return;
+  function initCouponForm() {
+    const $form = $("#couponForm");
+    if (!$form.length) return;
 
-  $form.on("submit", function (e) {
-    e.preventDefault();
+    $form.on("submit", function (e) {
+      e.preventDefault();
 
-    const $code = $("#couponCode");
-    const code = ($code.val() || "").toString().trim().toUpperCase();
-    const ok = /^[A-Z0-9]{3,12}$/.test(code);
+      const $code = $("#couponCode");
+      const code = ($code.val() || "").toString().trim().toUpperCase();
+      const ok = /^[A-Z0-9]{3,12}$/.test(code);
 
-    if (!code) {
-      $code.removeClass("is-invalid is-valid");
-      $("#couponApplied").addClass("d-none");
+      if (!code) {
+        $code.removeClass("is-invalid is-valid");
+        $("#couponApplied").addClass("d-none");
 
-      // optional: store in state for prototype consistency
+        // optional: store in state for prototype consistency
+        const state = loadCartState();
+        state.coupon = null;
+        saveCartState(state);
+
+        return;
+      }
+
+      if (!ok) {
+        $code.addClass("is-invalid").removeClass("is-valid");
+        $("#couponApplied").addClass("d-none");
+        return;
+      }
+
+      $code.removeClass("is-invalid").addClass("is-valid");
+      $("#couponApplied").removeClass("d-none");
+
       const state = loadCartState();
-      state.coupon = null;
+      state.coupon = code;
       saveCartState(state);
 
-      return;
-    }
-
-    if (!ok) {
-      $code.addClass("is-invalid").removeClass("is-valid");
-      $("#couponApplied").addClass("d-none");
-      return;
-    }
-
-    $code.removeClass("is-invalid").addClass("is-valid");
-    $("#couponApplied").removeClass("d-none");
-
-    const state = loadCartState();
-    state.coupon = code;
-    saveCartState(state);
-
-    setTimeout(() => $code.removeClass("is-valid"), 900);
-  });
-}
+      setTimeout(() => $code.removeClass("is-valid"), 900);
+    });
+  }
 
   // Add-to-cart buttons on shop + product page
   function initAddToCartButtons() {
@@ -287,7 +287,7 @@ function initCouponForm() {
         $("#postcode").removeClass("is-invalid");
       }
 
-       
+
 
       // HTML5 constraint check too
       if (!this.checkValidity()) {
@@ -320,7 +320,7 @@ function initCouponForm() {
       return (s || "").toString().replace(/\D/g, "");
     }
 
-      $("#paymentForm").on("submit", function (e) {
+    $("#paymentForm").on("submit", function (e) {
       e.preventDefault();
 
       let ok = true;
@@ -344,42 +344,42 @@ function initCouponForm() {
 
       // Expiry: must be in the future (valid through end of expiry month)
       // Accepts: "MM/YY", "MM / YY", "MMYY"
-    const rawExp = ($("#expMMYY").val() || "").toString().trim();
-    const expDigits = rawExp.replace(/\D/g, ""); // keep digits only
+      const rawExp = ($("#expMMYY").val() || "").toString().trim();
+      const expDigits = rawExp.replace(/\D/g, ""); // keep digits only
 
-    let expOk = true;
+      let expOk = true;
 
-    if (expDigits.length !== 4) {
-    expOk = false;
-    } else {
-    const mm = Number(expDigits.slice(0, 2));
-    const yy = Number(expDigits.slice(2, 4));
+      if (expDigits.length !== 4) {
+        expOk = false;
+      } else {
+        const mm = Number(expDigits.slice(0, 2));
+        const yy = Number(expDigits.slice(2, 4));
 
-    if (!(mm >= 1 && mm <= 12)) {
-    expOk = false;
-    } else {
-    // Interpret YY as 20YY (prototype assumption)
-    const yyyy = 2000 + yy;
+        if (!(mm >= 1 && mm <= 12)) {
+          expOk = false;
+        } else {
+          // Interpret YY as 20YY (prototype assumption)
+          const yyyy = 2000 + yy;
 
-    // Card is typically valid until the end of the expiry month.
-    // So we compare NOW with the first day of the month AFTER expiry.
-    const firstOfNextMonth = new Date(yyyy, mm, 1); // month is 1-based here intentionally (mm), JS rolls over
-    const now = new Date();
+          // Card is typically valid until the end of the expiry month.
+          // So we compare NOW with the first day of the month AFTER expiry.
+          const firstOfNextMonth = new Date(yyyy, mm, 1); // month is 1-based here intentionally (mm), JS rolls over
+          const now = new Date();
 
-    if (!(firstOfNextMonth > now)) {
-      expOk = false;
-    }
-  }
-}
+          if (!(firstOfNextMonth > now)) {
+            expOk = false;
+          }
+        }
+      }
 
-  if (!expOk) {
-  $("#expMMYY").addClass("is-invalid");
-  ok = false;
-  } else {
-  $("#expMMYY").removeClass("is-invalid");
-  }
-      
-     
+      if (!expOk) {
+        $("#expMMYY").addClass("is-invalid");
+        ok = false;
+      } else {
+        $("#expMMYY").removeClass("is-invalid");
+      }
+
+
       // CVV: 3-4 digits
       const cvv = digitsOnly($("#cvv").val());
       if (!(cvv.length === 3 || cvv.length === 4)) {
@@ -398,7 +398,7 @@ function initCouponForm() {
 
       $("#paymentSuccess").removeClass("d-none");
 
-       });
+    });
   }
 
   // Basic search forms (prevent empty submit)
@@ -416,14 +416,14 @@ function initCouponForm() {
 
   // Initialize
   $(function () {
-  updateCartCountBadge();
-  initFloatingAnchor();
-  initNewsletterForms();
-  initSearchForms();
-  initAddToCartButtons();
-  initCouponForm();    
-  initCartPage();
-  initShippingPage();
-  initPaymentPage();
-});
+    updateCartCountBadge();
+    initFloatingAnchor();
+    initNewsletterForms();
+    initSearchForms();
+    initAddToCartButtons();
+    initCouponForm();
+    initCartPage();
+    initShippingPage();
+    initPaymentPage();
+  });
 })();

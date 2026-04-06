@@ -2,27 +2,30 @@
    Custom styles to complement Bootstrap and align with the wireframe feel.
 */
 
-:root{
+:root {
   --brand-dark: #3A5456ff;
   --soft-gray: #687D80ff;
-  --tile-border:#89A3B2ff;
+  --tile-border: #89A3B2ff;
 }
 
-html, body{
+html,
+body {
   font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
-.btn-dark{
-    background-color: #3A5456ff; /* New background */
-    border-color: #3A5456ff;     /* Match border */
+.btn-dark {
+  background-color: #3A5456ff;
+  /* New background */
+  border-color: #3A5456ff;
+  /* Match border */
 }
 
-.btn-dark:hover{
+.btn-dark:hover {
   background-color: var(--brand-dark);
   border-color: var(--brand-dark);
 }
 
-.brand-mark{
+.brand-mark {
   width: 34px;
   height: 34px;
   border: 1px solid var(--tile-border);
@@ -30,55 +33,56 @@ html, body{
   color: var(--brand-dark);
 }
 
-.section-title{
+.section-title {
   letter-spacing: 0.12em;
   font-weight: 300;
   text-transform: none;
 }
 
-.section-rule{
+.section-rule {
   width: 140px;
   opacity: .35;
 }
 
- 
-.hero-divider{
+
+.hero-divider {
   background: #fff;
 }
 
-.placeholder-tile{
+.placeholder-tile {
   background: #fff;
   border: 1px solid var(--tile-border);
   border-radius: 6px;
 }
 
 .product-card,
-.list-product{
+.list-product {
   border: 0px solid var(--tile-border);
   border-radius: 10px;
   background: #fff;
 }
 
-.list-thumb{
+.list-thumb {
   width: 84px;
   max-width: 84px;
   flex: 0 0 auto;
 }
 
-.footer-link{
+.footer-link {
   color: #6c757d;
   text-decoration: none;
 }
-.footer-link:hover{
+
+.footer-link:hover {
   color: #111;
   text-decoration: underline;
 }
 
-.rating i{
+.rating i {
   margin-right: 1px;
 }
 
-.avatar-circle{
+.avatar-circle {
   width: 44px;
   height: 44px;
   border-radius: 999px;
@@ -90,22 +94,24 @@ html, body{
 }
 
 /* Step indicator emphasis (cart/shipping/payment) */
-.step-active{
+.step-active {
   color: #111;
   font-weight: 600;
   text-decoration: underline;
-  text-underline-offset:22px;
+  text-underline-offset: 22px;
 }
 
-.summary-line{
+.summary-line {
   padding: .35rem 0;
 }
 
 .ship-card {
-  border: 1px solid #bdbdbd;  
-  border-radius: 4px;    /* wireframe border */
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  /* wireframe border */
   padding: 18px 20px;
-  align-items: flex-start;        /* keep text at top like the wireframe */
+  align-items: flex-start;
+  /* keep text at top like the wireframe */
   background: #fff;
   cursor: pointer;
   user-select: none;
@@ -121,7 +127,8 @@ html, body{
   position: relative;
   flex: 0 0 auto;
 }
-.btn-check:checked + .ship-card .ship-radio::after {
+
+.btn-check:checked+.ship-card .ship-radio::after {
   content: "";
   position: absolute;
   inset: 3px;
@@ -131,23 +138,25 @@ html, body{
 
 .ship-title {
   font-size: 14px;
-  color: #7a7a7a;                /* light grey title */
+  color: #7a7a7a;
+  /* light grey title */
   font-weight: 500;
 }
 
 .ship-sub {
   margin-top: 4px;
   font-size: 11px;
-  color: #a0a0a0;                /* lighter subtitle */
+  color: #a0a0a0;
+  /* lighter subtitle */
 }
 
 /* optional: subtle selected background like typical UI */
-.btn-check:checked + .ship-card {
+.btn-check:checked+.ship-card {
   background: #f3f3f3;
 }
 
 /* Fancy floating anchor button */
-.floating-anchor{
+.floating-anchor {
   position: fixed;
   right: 18px;
   bottom: 18px;
@@ -157,14 +166,15 @@ html, body{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,.20);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .20);
   opacity: 0;
   pointer-events: none;
   transform: translateY(8px);
   transition: all .2s ease;
   z-index: 999;
 }
-.floating-anchor.is-visible{
+
+.floating-anchor.is-visible {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);

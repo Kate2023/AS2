@@ -17,9 +17,9 @@ html, body{
     border-color: #3A5456ff;     /* Match border */
 }
 
-.btn:hover {
-    background-color: #3A5456ff; /* Hover effect */
-    border-color: #3A5456ff;
+.btn-dark:hover{
+  background-color: var(--brand-dark);
+  border-color: var(--brand-dark);
 }
 
 .brand-mark{

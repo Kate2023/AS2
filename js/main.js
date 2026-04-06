@@ -276,22 +276,7 @@
         $("#postcode").removeClass("is-invalid");
       }
 
-      // delivery date must be today or future (prefer future)
-      const d = ($("#deliveryDate").val() || "").toString();
-      if (!d) {
-        $("#deliveryDate").addClass("is-invalid");
-        ok = false;
-      } else {
-        const chosen = new Date(d + "T00:00:00");
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        if (chosen < today) {
-          $("#deliveryDate").addClass("is-invalid");
-          ok = false;
-        } else {
-          $("#deliveryDate").removeClass("is-invalid");
-        }
-      }
+       
 
       // HTML5 constraint check too
       if (!this.checkValidity()) {
@@ -301,11 +286,11 @@
 
       if (!ok) return;
 
-      window.location.href = "/AS2/payment.html";
+      window.location.href = "payment.html";
     });
   }
 
-  // Payment page: jQuery validation (card number length, expiry, CVV, postcode)
+  // Payment page: jQuery validation (card number length, expiryMMYY, CVV)
   function initPaymentPage() {
     if (!$("#paymentForm").length) return;
 
@@ -338,19 +323,44 @@
         $("#cardNumber").removeClass("is-invalid");
       }
 
-      // Expiry: must be in the future
-      const m = Number($("#expMonth").val());
-      const y = Number($("#expYear").val());
-      const now = new Date();
-      const exp = new Date(y, (m || 1) - 1, 1);
-      exp.setMonth(exp.getMonth() + 1); // end of expiry month
-      if (!(m >= 1 && m <= 12) || !(y >= 2026) || exp <= now) {
-        $("#expMonth, #expYear").addClass("is-invalid");
-        ok = false;
-      } else {
-        $("#expMonth, #expYear").removeClass("is-invalid");
-      }
+      // Expiry: must be in the future (valid through end of expiry month)
+      // Accepts: "MM/YY", "MM / YY", "MMYY"
+    const rawExp = ($("#expMMYY").val() || "").toString().trim();
+    const expDigits = rawExp.replace(/\D/g, ""); // keep digits only
 
+    let expOk = true;
+
+    if (expDigits.length !== 4) {
+    expOk = false;
+    } else {
+    const mm = Number(expDigits.slice(0, 2));
+    const yy = Number(expDigits.slice(2, 4));
+
+    if (!(mm >= 1 && mm <= 12)) {
+    expOk = false;
+    } else {
+    // Interpret YY as 20YY (prototype assumption)
+    const yyyy = 2000 + yy;
+
+    // Card is typically valid until the end of the expiry month.
+    // So we compare NOW with the first day of the month AFTER expiry.
+    const firstOfNextMonth = new Date(yyyy, mm, 1); // month is 1-based here intentionally (mm), JS rolls over
+    const now = new Date();
+
+    if (!(firstOfNextMonth > now)) {
+      expOk = false;
+    }
+  }
+}
+
+  if (!expOk) {
+  $("#expMMYY").addClass("is-invalid");
+  ok = false;
+  } else {
+  $("#expMMYY").removeClass("is-invalid");
+  }
+      
+     
       // CVV: 3-4 digits
       const cvv = digitsOnly($("#cvv").val());
       if (!(cvv.length === 3 || cvv.length === 4)) {
@@ -358,15 +368,6 @@
         ok = false;
       } else {
         $("#cvv").removeClass("is-invalid");
-      }
-
-      // Billing postcode: NZ 4 digits
-      const bp = ($("#billingPostcode").val() || "").toString().trim();
-      if (!/^\d{4}$/.test(bp)) {
-        $("#billingPostcode").addClass("is-invalid");
-        ok = false;
-      } else {
-        $("#billingPostcode").removeClass("is-invalid");
       }
 
       if (!this.checkValidity()) {

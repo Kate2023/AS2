@@ -20,7 +20,7 @@
       <div class="container py-2">
         <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
           <span class="brand-mark d-inline-flex align-items-center justify-content-center">
-            <i class="bi bi-mountain"></i>
+             <img src="images/logo.png" alt="Aotearoa Adventure Gear" style="width:100px;height:60px;"/>
           </span>
           <span>Aotearoa Adventure Gear</span>
         </a>
@@ -131,24 +131,48 @@
                 </div>
 
                 <!-- Shipping method tiles (wireframe-style) -->
-                <div class="col-12">
-                  <div class="row g-3 mt-1">
-                    <div class="col-12 col-md-6">
-                      <label class="ship-option w-100">
-                        <input class="form-check-input me-2" type="radio" name="shipMethod" value="free" checked>
-                        <span class="ship-option-title">Free Shipping</span>
-                        <span class="ship-option-sub">Between 2 - 5 working days</span>
-                      </label>
-                    </div>
-                    <div class="col-12 col-md-6">
-                      <label class="ship-option w-100">
-                        <input class="form-check-input me-2" type="radio" name="shipMethod" value="nextday">
-                        <span class="ship-option-title">Next Day Delivery - $20</span>
-                        <span class="ship-option-sub">24 hours from checkout</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
+                <div class="container py-4">
+  <div class="row g-3">
+    <!-- Option 1 -->
+    <div class="col-12 col-md-6">
+      <input
+        class="btn-check"
+        type="radio"
+        name="shipMethod"
+        id="ship-free"
+        value="free"
+        checked
+      />
+      <label class="ship-card d-flex gap-3 w-100" for="ship-free">
+        <span class="ship-radio" aria-hidden="true"></span>
+
+        <span class="d-block">
+          <span class="ship-title d-block">Free Shipping</span>
+          <span class="ship-sub d-block">Between 2 - 5 working days</span>
+        </span>
+      </label>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="col-12 col-md-6">
+      <input
+        class="btn-check"
+        type="radio"
+        name="shipMethod"
+        id="ship-next"
+        value="next"
+      />
+      <label class="ship-card d-flex gap-3 w-100" for="ship-next">
+        <span class="ship-radio" aria-hidden="true"></span>
+
+        <span class="d-block">
+          <span class="ship-title d-block">Next Day Delivery - $20</span>
+          <span class="ship-sub d-block">24 hours from checkout</span>
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
 
                 <hr class="mt-3">
 
@@ -167,14 +191,14 @@
 
             <div class="summary-products mb-3">
               <div class="d-flex align-items-center gap-3 py-2">
-                <div class="ratio ratio-1x1 summary-thumb placeholder-tile"></div>
+                <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
                 <div>
                   <div class="text-uppercase small text-muted">Product Name</div>
                   <div class="fw-semibold">$300</div>
                 </div>
               </div>
               <div class="d-flex align-items-center gap-3 py-2">
-                <div class="ratio ratio-1x1 summary-thumb placeholder-tile"></div>
+                <div class="ratio ratio-1x1 list-thumb placeholder-tile"></div>
                 <div>
                   <div class="text-uppercase small text-muted">Product Name</div>
                   <div class="fw-semibold">$300</div>
@@ -230,7 +254,7 @@
       <a class="footer-link mx-3" href="index.html#about">About</a> |
       <a class="footer-link mx-3" href="shop.html">Shop</a> |
       <a class="footer-link ms-3" href="index.html#help">Help</a>
-      <div class="mt-2"><i class="bi bi-c-circle"></i> Your Company Name</div>
+      <div class="mt-2"><i class="bi bi-c-circle"></i> Aotearoa Adventure Gear</div>
     </div>
   </footer>
 

@@ -94,11 +94,56 @@ html, body{
   color: #111;
   font-weight: 600;
   text-decoration: underline;
-  text-underline-offset:21px;
+  text-underline-offset:22px;
 }
 
 .summary-line{
   padding: .35rem 0;
+}
+
+.ship-card {
+  border: 1px solid #bdbdbd;  
+  border-radius: 4px;    /* wireframe border */
+  padding: 18px 20px;
+  align-items: flex-start;        /* keep text at top like the wireframe */
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* radio "circle" */
+.ship-radio {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 2px solid #8f8f8f;
+  position: relative;
+  flex: 0 0 auto;
+}
+.btn-check:checked + .ship-card .ship-radio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #6f6f6f;
+}
+
+.ship-title {
+  font-size: 14px;
+  color: #7a7a7a;                /* light grey title */
+  font-weight: 500;
+}
+
+.ship-sub {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #a0a0a0;                /* lighter subtitle */
+}
+
+/* optional: subtle selected background like typical UI */
+.btn-check:checked + .ship-card {
+  background: #f3f3f3;
 }
 
 /* Fancy floating anchor button */

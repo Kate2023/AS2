@@ -301,7 +301,7 @@
 
       if (!ok) return;
 
-      window.location.href = "payment.html";
+      window.location.href = "/AS2/payment.html";
     });
   }
 
@@ -378,10 +378,7 @@
 
       $("#paymentSuccess").removeClass("d-none");
 
-      // Prototype: do not clear cart automatically (optional), but you can if needed:
-      // localStorage.removeItem(STORAGE_KEY);
-      // updateCartCountBadge();
-    });
+       });
   }
 
   // Basic search forms (prevent empty submit)

@@ -1,0 +1,43 @@
+<header class="border-bottom bg-white sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container py-2">
+      <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="index.html">
+        <span class="brand-mark d-inline-flex align-items-center justify-content-center">
+          <img src="images/logo.png" alt="Aotearoa Adventure Gear" style="width:100px;height:60px;"/>
+        </span>
+        <span>Aotearoa Adventure Gear</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+
+        <!-- Optional search placeholder (only shown on index via JS if you want) -->
+        <form class="d-flex ms-lg-4 my-3 my-lg-0 me-lg-auto d-none" role="search" id="homeSearchForm" novalidate>
+          <div class="input-group">
+            <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+            <input class="form-control" type="search" placeholder="Search..." aria-label="Search" id="homeSearch" />
+          </div>
+        </form>
+
+        <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="index.html" data-nav="home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about" data-nav="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="shop.html" data-nav="shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#help" data-nav="help">Help</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-dark btn-sm d-inline-flex align-items-center gap-2" href="cart.html" data-nav="cart">
+              <i class="bi bi-cart3"></i>
+              Your Cart
+              <span class="badge text-bg-light" id="cartCount">0</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</header>
